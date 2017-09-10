@@ -1,0 +1,8 @@
+
+@import "abstracts/**/*"; /* variables, functions, mixins, media queries */
+@import "vendors/**/*"; /* external style (eg: Semantic UI...) */
+@import "bases/**/*"; /* normalize, colors, typography rules */
+@import "themes/**/*"; /* theme-specific variables (eg: dark, light, admin...) */
+@import "layout/**/*"; /* layout elements (eg: header, footer, navigation...) */
+@import "components/**/*"; /* UI elements (eg: buttons, covers, cards... )*/
+@import "pages/**/*"; /* style specific to a page (eg: Home...) */

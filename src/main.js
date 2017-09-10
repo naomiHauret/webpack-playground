@@ -1,3 +1,4 @@
-import { test } from "./exampleModule/test"
-console.log("Hello, I'm from main")
-test()
+// import styles from './assets/styles/main.css'
+// import { example } from "./components/exampleModule/exampleModule"
+
+// example()
