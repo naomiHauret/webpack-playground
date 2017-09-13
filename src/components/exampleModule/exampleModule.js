@@ -1,3 +1,5 @@
-export const example = () => {
-    console.log("Hello, world!")
+export function example() {
+  console.log("Hello world")
 }
+
+export default example
