@@ -24,7 +24,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: extractCSS.extract({
+        exclude: /node_modules/,
+        loader: ["css-hot-loader"].concat(extractCSS.extract({
           use: [
             {
               loader: "css-loader",
@@ -40,7 +41,7 @@ module.exports = {
             },
 
           ],
-        }),
+        })),
       },
     ],
   },

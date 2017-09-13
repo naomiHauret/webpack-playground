@@ -10,8 +10,8 @@ module.exports = {
     "./main.js",
   ],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/assets/",
+    path: path.resolve(__dirname, "dist/assets"),
+    publicPath: "/dist/assets",
     filename: "[name].bundle.dev.js",
   },
   module: {
@@ -23,11 +23,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: extractCSS.extract({
+        exclude: /node_modules/,
+        loader: ["css-hot-loader"].concat(extractCSS.extract({
           use: [
             {
               loader: "css-loader",
-              options: { importLoaders: 1 },
+              options: {
+                importLoaders: 1,
+              },
             },
             {
               loader: "postcss-loader",
@@ -39,7 +42,7 @@ module.exports = {
             },
 
           ],
-        }),
+        })),
       },
     ],
   },

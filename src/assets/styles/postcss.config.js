@@ -1,4 +1,4 @@
-// Prod config
+// Dev config
 
 module.exports = {
   plugins: {
@@ -13,3 +13,4 @@ module.exports = {
     },
   },
 }
+
