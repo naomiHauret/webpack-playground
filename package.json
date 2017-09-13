@@ -1,36 +1,56 @@
 {
-  "name": "webpack-playground",
-  "version": "1.0.0",
-  "description": "Webpack playground",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "webpack",
-    "js",
-    "javascript",
-    "playground",
-    "frontend",
-    "backend",
-    "fullstackjs"
-  ],
-  "author": "Naomi Hauret",
-  "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "postcss": "^6.0.11",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-csso": "^2.0.0",
-    "postcss-easy-import": "^2.1.0",
-    "postcss-google-font": "^0.1.1",
-    "postcss-loader": "^2.0.6",
-    "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.7.1"
-  }
+    "name": "webpack-playground",
+    "version": "1.0.0",
+    "description": "Webpack playground",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run dev:watch",
+        "lint:js": "eslint src webpack.dev.config.js webpack.prod.config.js --ext .js",
+        "lint:css": "stylelint src/assets/styles/**/*.css",
+        "test": "npm run lint:js && npm run lint:css",
+        "dev:build": "webpack --config webpack.dev.config.js",
+        "dev:watch": "npm run dev:build && webpack-dev-server --config webpack.dev.config.js --hot",                
+        "prod:build": "webpack -p --config webpack.prod.config.js",
+        "prod:watch": "npm run prod:build && webpack-dev-server --config webpack.prod.config.js --hot -p",
+        "precommit": "npm run test",
+        "prepush": "npm run test"
+    },
+    "keywords": [
+        "webpack",
+        "js",
+        "javascript",
+        "playground",
+        "frontend",
+        "backend",
+        "fullstackjs"
+    ],
+    "author": "Naomi Hauret",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.0",
+        "css-hot-loader": "^1.3.1",
+        "css-loader": "^0.28.7",
+        "eslint": "^4.6.1",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-react": "^7.3.0",
+        "postcss": "^6.0.11",
+        "postcss-cssnext": "^3.0.2",
+        "postcss-easy-import": "^2.1.0",
+        "postcss-google-font": "^0.1.1",
+        "postcss-loader": "^2.0.6",
+        "postcss-random": "^1.0.9",
+        "stylelint": "^8.1.1",
+        "stylelint-config-standard": "^17.0.0",
+        "webpack-dev-server": "^2.7.1"
+    },
+    "dependencies": {
+        "csso-webpack-plugin": "^1.0.0-beta.8",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "webpack": "^3.5.6"
+    }
 }
