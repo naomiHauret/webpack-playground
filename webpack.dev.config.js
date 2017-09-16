@@ -1,8 +1,9 @@
 const path = require("path")
 const webpack = require("webpack")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-const extractCSS = new ExtractTextPlugin("[name].bundle.dev.css")
+const extractCSS = new ExtractTextPlugin("assets/[name].bundle.dev.css")
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
@@ -10,9 +11,9 @@ module.exports = {
     "./main.js",
   ],
   output: {
-    path: path.resolve(__dirname, "dist/assets"),
-    publicPath: "/dist/assets",
-    filename: "[name].bundle.dev.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/dist",
+    filename: "assets/[name].bundle.dev.js",
   },
   module: {
     rules: [ // rules =  loaders in Webpack 1
@@ -20,6 +21,10 @@ module.exports = {
         test: /\.js$/, // all .js files
         exclude: /node_modules/, // except those in node_modules/
         use: "babel-loader", // use babel
+      },
+      {
+        test: /\.pug$/,
+        loaders: ["pug-loader"],
       },
       {
         test: /\.css$/,
@@ -40,7 +45,6 @@ module.exports = {
                 },
               },
             },
-
           ],
         })),
       },
@@ -52,6 +56,11 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     extractCSS,
+    new HtmlWebpackPlugin({
+      template: "./index.template.pug",
+      filename: "index.html",
+      inject: true,
+    }),
   ],
   resolve: {
     extensions: [".js"],
