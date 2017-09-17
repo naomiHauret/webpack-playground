@@ -27,6 +27,10 @@ module.exports = {
         loaders: ["pug-loader"],
       },
       {
+        test: /\.html$/,
+        loader: "raw-loader",
+      },
+      {
         test: /\.css$/,
         exclude: /node_modules/,
         loader: ["css-hot-loader"].concat(extractCSS.extract({
