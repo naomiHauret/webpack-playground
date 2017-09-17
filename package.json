@@ -8,9 +8,9 @@
         "lint:js": "eslint src webpack.dev.config.js webpack.prod.config.js --ext .js",
         "lint:css": "stylelint src/assets/styles/**/*.css",
         "test": "npm run lint:js && npm run lint:css",
-        "dev:build": "webpack --config webpack.dev.config.js",
+        "dev:build": "rimraf dist && webpack --config webpack.dev.config.js",
         "dev:watch": "npm run dev:build && webpack-dev-server --config webpack.dev.config.js --hot",
-        "prod:build": "webpack -p --config webpack.prod.config.js",
+        "prod:build": "rimraf dist && webpack -p --config webpack.prod.config.js",
         "prod:watch": "npm run prod:build && webpack-dev-server --config webpack.prod.config.js --hot -p",
         "precommit": "npm run test",
         "prepush": "npm run test"
@@ -47,6 +47,7 @@
         "postcss-random": "^1.0.9",
         "pug": "^2.0.0-rc.4",
         "pug-loader": "^2.3.0",
+        "rimraf": "^2.6.2",
         "stylelint": "^8.1.1",
         "stylelint-config-standard": "^17.0.0",
         "webpack-dev-server": "^2.7.1"
