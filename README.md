@@ -38,13 +38,13 @@ Watch mode with *Hot Module Replacement* in both prod and dev environment. It in
 
 ## Pug (Jade)
 
-> :bulb: [Pug](https://pugjs.org) (formerly known as Jade) is a template engine based on indentation.
+> :bulb: *[Pug](https://pugjs.org) (formerly known as Jade) is a template engine based on indentation.*
 
 Page default template can be changed in `src/index.template.pug`.
 
 ## PostCSS
 
-> :bulb: [PostCSS](https://postcss.org) is not a CSS preprocessor like Sass or Stylus, but a tool to transform CSS with plugin written in Javascript.
+> :bulb: *[PostCSS](https://postcss.org) is not a CSS preprocessor like Sass or Stylus, but a tool to transform CSS with plugin written in Javascript.*
 
 Two PostCSS config: one for development, another one for production (although both are using the same plugins at the moment).
 Plugins: [easy-import](https://github.com/trysound/postcss-easy-import), [cssnext](http://cssnext.io/) (includes [autoprefixer](https://github.com/postcss/autoprefixer)), [google-font](https://github.com/yordis/postcss-google-font), [random](https://github.com/git-slim/postcss-random).
